@@ -1,34 +1,31 @@
-package org.example.Services;
+package org.example.Controller;
 
-
-import org.example.Controller.DataController;
 import org.example.Viev.VievUserFile;
-
 import java.util.Scanner;
 
-public class Programm implements IStart {
+public class RunController implements IRun {
 
     @Override
-    public void startProgramm() {
+    public void run() throws RuntimeException {
+        System.out.println("Начало работы программы: ");
         Scanner scan = new Scanner(System.in);
         boolean flag = true;
         while (flag) {
             System.out.println("Выберите действие: \n1-Ввод данных \n2-Чтение данных \n0-Выход");
             switch (scan.nextInt()) {
                 case 1:
-                    DataController dataController = new DataController();
-                    MakeUserData userData = new MakeUserData();
-                    MakeUserFiles userFiles = new MakeUserFiles();
-                    userFiles.writeUserDataInFile(userData.makeUserData(dataController.toString()));
+                    new MakeFileController().createFile();
                     break;
                 case 2:
-                    VievUserFile viev = new VievUserFile();
                     System.out.println("Введите фамилию: ");
-                    viev.vievUserFile(scan.nextLine());
+                    new VievUserFile().vievUserFile(scan.next());
                     break;
                 case 0:
                     flag = false;
+                    System.out.println("Конец работы программы!");
                     break;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + scan.nextInt());
             }
         }
         scan.close();

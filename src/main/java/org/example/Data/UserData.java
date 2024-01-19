@@ -19,7 +19,7 @@ public class UserData {
 
     @Override
     public String toString() {
-        return "User: <" + surname + ">" +
+        return "<" + surname + ">" +
                 "<" + name + ">" +
                 "<" + patronymic + ">" +
                 "<" + date + ">" +

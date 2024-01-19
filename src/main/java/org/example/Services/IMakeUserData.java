@@ -2,6 +2,8 @@ package org.example.Services;
 
 import org.example.Data.UserData;
 
+import java.text.ParseException;
+
 public interface IMakeUserData {
-    public UserData makeUserData(String str);
+    UserData makeUserDatas(String str) throws ParseException;
 }

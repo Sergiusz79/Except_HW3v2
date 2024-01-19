@@ -8,11 +8,14 @@ public class VievUserFile implements IVievUserFile {
     public void vievUserFile(String surname) {
         try(BufferedReader bur = new BufferedReader(new FileReader(surname + ".txt"))){
             String s;
-            while((s=bur.readLine())!=null){
+            while((s = bur.readLine())!=null){
                 System.out.println(s);
             }
         }catch (Exception e){
             throw new RuntimeException(e.getMessage());
         }
+    }
+
+    public VievUserFile() {
     }
 }
