@@ -57,5 +57,6 @@ public class MakeUserData implements IMakeUserData {
         }
 
         return new UserData(surname, name, patronymic, dataOfBirth, phoneNumber, sex);
+
     }
 }
